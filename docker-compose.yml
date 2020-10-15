@@ -6,7 +6,7 @@ networks:
 services:
   nginx:
     image: nginx:stable-alpine
-    container_name: nginx_lava
+    container_name: lava_nginx
     ports:
       - "80:80"
     volumes:
@@ -20,7 +20,7 @@ services:
 
   mysql:
     image: mysql:5.7.22
-    container_name: mysql_lava
+    container_name: lava_mysql
     restart: unless-stopped
     tty: true
     ports:
@@ -39,11 +39,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php_lava
+    container_name: lava_php
     volumes:
       - ./src:/var/www
       - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
     ports:
       - "9000:9000"
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: lava_pma
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8183:80
     networks:
       - laravel
