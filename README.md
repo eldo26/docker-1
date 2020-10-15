@@ -1,4 +1,4 @@
-# docker
+# docker (nginx, php, mysql, phpmyadmin)
 
 # Install Docker
 
@@ -6,22 +6,28 @@
 - Linux: https://docs.docker.com/engine/install/ubuntu/
 - Mac: https://docs.docker.com/docker-for-mac/install/
 
+# Create a project folder
+
+- git clone https://github.com/ronaldwilson/docker.git project-name
+
+# Clone Laravel project
+
+- cd project-name
+- Clone Laravel project to src/ directory
+  - git clone https://github.com/Renfos/Lavalite.git src
+
 # Spin containers
 
 - Run following command to spin all containers:
   - docker-compose up -d
 
-# Start Laravel project
+# Update Laravel DB credentials
 
-- Clone Laravel project to src/ directory
-  - git clone https://github.com/Renfos/Lavalite.git src
 - cd src/ folder
 - composer install
 - npm install
 - npm run dev
 - cp .env.example .env
-
-# Update Laravel DB credentials
 
 - DB_CONNECTION=mysql
 - DB_HOST=lava_mysql
