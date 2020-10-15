@@ -6,7 +6,7 @@
 - Linux: https://docs.docker.com/engine/install/ubuntu/
 - Mac: https://docs.docker.com/docker-for-mac/install/
 
-# Spin containes
+# Spin containers
 
 - Run following command to spin all containers:
   - docker-compose up -d
