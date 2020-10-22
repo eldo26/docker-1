@@ -14,7 +14,7 @@
 
 - cd project-name
 - Clone Laravel project to src/ directory
-  - git clone https://github.com/Renfos/Lavalite.git src
+  - git clone https://gitlab.com/techsingularityptyltd/moblyze-fleet-management.git src
 
 # Spin containers
 
